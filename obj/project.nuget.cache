@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XYninaAuxRo=",
+  "dgSpecHash": "NYm4pm+QK4g=",
   "success": true,
-  "projectFilePath": "C:\\Users\\lab_services_student\\source\\repos\\ABCretial2\\AzureFileShareFunction\\AzureFileShareFunction.csproj",
+  "projectFilePath": "C:\\Users\\lab_services_student\\source\\repos\\ABCretial2\\AzureQueueFunction\\AzureQueueFunction.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lab_services_student\\.nuget\\packages\\azure.core\\1.41.0\\azure.core.1.41.0.nupkg.sha512",
     "C:\\Users\\lab_services_student\\.nuget\\packages\\google.protobuf\\3.25.2\\google.protobuf.3.25.2.nupkg.sha512",
