@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Function1",
+    "scriptFile": "Azure.Blob.Trigger.Function.dll",
+    "entryPoint": "Azure.Blob.Trigger.Function.Function1.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "stream",
+        "direction": "In",
+        "type": "blobTrigger",
+        "path": "products/{name}",
+        "connection": "",
+        "properties": {
+          "supportsDeferredBinding": "True"
+        }
+      }
+    ]
+  }
+]
