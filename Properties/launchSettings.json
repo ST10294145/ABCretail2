@@ -1,8 +1,8 @@
 {
   "profiles": {
-    "AzureQueueMessageFunction": {
+    "AzureTableFunction": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7149",
+      "commandLineArgs": "--port 7142",
       "launchBrowser": false
     }
   }

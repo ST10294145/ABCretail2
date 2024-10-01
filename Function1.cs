@@ -1,26 +1,25 @@
-using System;
-using Azure.Storage.Queues.Models;
+using System.IO;
+using System.Threading.Tasks;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 
-namespace AzureQueueMessageFunction
+namespace AzureTableFunction
 {
-    public class ProcessTransactionQueueFunction
+    public class Function1
     {
-        private readonly ILogger<ProcessTransactionQueueFunction> _logger;
+        private readonly ILogger<Function1> _logger;
 
-        public ProcessTransactionQueueFunction(ILogger<ProcessTransactionQueueFunction> logger)
+        public Function1(ILogger<Function1> logger)
         {
             _logger = logger;
         }
 
-        [Function(nameof(ProcessTransactionQueueFunction))]
-        public void Run(
-            [QueueTrigger("transaction-queue", Connection = "AzureWebJobsStorage")] QueueMessage message)
+        [Function(nameof(Function1))]
+        public async Task Run([BlobTrigger("users/{name}", Connection = "DefaultEndpointsProtocol=https;AccountName=st10294145storage;AccountKey=x6Zdw9zyS9HMBCGE7LsBV0csrKG9Sszgtd6KBf6pB1LFrHhv1FnOfWXDRbS5hFafTpY7nSebvzSV+AStdSHR1A==;EndpointSuffix=core.windows.net")] Stream stream, string name)
         {
-            _logger.LogInformation($"Queue trigger function processed: {message.MessageText}");
-
-            // You can add your business logic here to process the message
+            using var blobStreamReader = new StreamReader(stream);
+            var content = await blobStreamReader.ReadToEndAsync();
+            _logger.LogInformation($"C# Blob trigger function Processed blob\n Name: {name} \n Data: {content}");
         }
     }
 }
