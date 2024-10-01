@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ABCretail2.Models.UserModel>
+
+@{
+    ViewData["Title"] = "Users List";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>User Name</th>
+            <th>Email</th>
+            <th>Partition Key</th>
+            <th>Row Key</th>
+            <th>Timestamp</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.User_Id</td>
+                <td>@user.User_Name</td>
+                <td>@user.email</td>
+                <td>@user.PartitionKey</td>
+                <td>@user.RowKey</td>
+                <td>@user.Timestamp?.ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>
